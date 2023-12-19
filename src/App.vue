@@ -1,6 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import NftItem from './components/NftItem.vue'
+import NftItem from './components/nftItem.vue'
 import { ref, onMounted } from "vue"
 import { vmNumberToBigInt, hexToBin } from "@bitauth/libauth"
 import { ElectrumClient, ElectrumTransport } from 'electrum-cash';
@@ -32,19 +32,20 @@ onMounted(async()=>{
   const response = await electrum.request('blockchain.address.get_history', mintAddress);
   const recentMints = response.slice(-8)
   console.log(recentMints)
-  const listCommitments = [];
+  const listPromises = [];
+  console.time('Execution Time');
   for(const tx of recentMints){
-    const txInfo = await electrum.request('blockchain.transaction.get', tx.tx_hash, true);
-    console.log(txInfo)
-    const nftCommitment = txInfo.vout[1].tokenData.nft.commitment
-    console.log(nftCommitment)
-    listCommitments.push(nftCommitment)
+    const txInfoPromise = electrum.request('blockchain.transaction.get', tx.tx_hash, true);
+    listPromises.push(txInfoPromise)
   }
+  const txInfoList = await Promise.all(listPromises);
+  console.timeEnd('Execution Time');
   const ninjaList = []
-  for(const commitment of listCommitments){
+  for(const txInfo of txInfoList){
+    const nftCommitment = txInfo.vout[1].tokenData.nft.commitment
     ninjaList.push({
-      commitment: commitment,
-      nftNumber: vmNumberToBigInt(hexToBin(commitment)) + 1n
+      commitment: nftCommitment,
+      nftNumber: vmNumberToBigInt(hexToBin(nftCommitment)) + 1n
     })
   }
   ninjas.value= ninjaList.reverse()

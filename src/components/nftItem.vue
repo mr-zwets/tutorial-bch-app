@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
   commitment: String,
-  nftNumber: Number
+  nftNumber: BigInt
 })
 </script>
 
