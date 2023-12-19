@@ -7,7 +7,7 @@ defineProps({
 
 <template>
   <div style="padding: 0px 25px;">
-    <img :src="'https://api.ninjas.cash/icons/'+nftNumber" />
+    <img :src="'https://api.ninjas.cash/icons/'+nftNumber" style="width: 240px;" />
     <div>CASHNINJA-{{ nftNumber }}</div>
     <div>commitment: {{ commitment }}</div>
   </div>
