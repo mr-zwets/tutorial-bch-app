@@ -1,29 +1,32 @@
-# bch-app
+# tutorial-bch-app
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the Bch-app from the Bitcoin Cash coding [tutorial series on Youtube](https://youtube.com/playlist?list=PL6IWHNFTaMnwEvvV3iPcVqyLgdt0cI1mb&si=DT5cWLDts9kNYEyk).
 
-## Recommended IDE Setup
+This tutorial project demonstrates how to build an app with the Vue-Js framework and configure the Vite bundler to work with `mainnet-js`, `libauth` and the `electrum-cash` library.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![ScreenshotApp](./ScreenshotApp.png)
 
-## Customize configuration
+## How to run the app locally
+First clone the project
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+```sh
+git clone git@github.com:mr-zwets/tutorial-bch-app.git
+```
 
-## Project Setup
-
+Then install the dependencies with
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
+Finally run the project locally with
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Deployment
 
+To actually compile and minify the application for deployment
 ```sh
 npm run build
 ```
+This will create a `dist` folder with the final assets.
