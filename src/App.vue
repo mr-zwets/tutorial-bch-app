@@ -57,7 +57,7 @@ onMounted(async()=>{
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="First bch app!" />
+      <HelloWorld msg="Recently Minted Cash-Ninjas" />
       <h3>current blockHeight: {{ blockHeight }}</h3>
     </div>
   </header>

@@ -11,9 +11,9 @@ defineProps({
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+      Project displaying recently minted Cash-Ninja NFTs, using 
+      <a href="https://libauth.org/" target="_blank" rel="noopener">libauth</a> and
+      <a href="https://gitlab.com/GeneralProtocols/electrum-cash/library" target="_blank" rel="noopener">electrum-cash</a>.
     </h3>
   </div>
 </template>
